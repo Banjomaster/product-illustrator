@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <style>
         :root {
-            --primary-color: #2D3748;
-            --accent-color: #4A90E2;
-            --text-color: #2D3748;
-            --light-bg: #F7FAFC;
+            --primary-color: #1a1a1a;
+            --accent-color: #D4AF37;
+            --text-color: #E0E0E0;
+            --dark-bg: #121212;
+            --card-bg: #1E1E1E;
+            --hover-bg: #2A2A2A;
+            --gold-gradient: linear-gradient(45deg, #D4AF37, #FFD700);
         }
         
         * {
@@ -23,17 +26,18 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: white;
+            background-color: var(--dark-bg);
         }
 
         .nav {
-            padding: 1.5rem 5%;
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem 5%;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-content {
@@ -47,8 +51,21 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--text-color);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
         }
 
         .nav-links a {
@@ -57,10 +74,12 @@
             margin-left: 2rem;
             font-weight: 500;
             transition: color 0.3s ease;
+            opacity: 0.8;
         }
 
         .nav-links a:hover {
             color: var(--accent-color);
+            opacity: 1;
         }
 
         .content {
@@ -70,27 +89,43 @@
         }
 
         .content h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 2rem;
-            color: var(--primary-color);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .content h2 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin: 2rem 0 1rem;
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
         .content p {
             margin-bottom: 1rem;
+            color: rgba(224, 224, 224, 0.8);
+        }
+
+        .content a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .content a:hover {
+            color: var(--text-color);
+            text-decoration: underline;
         }
 
         .footer {
             background: var(--primary-color);
-            color: white;
+            color: var(--text-color);
             padding: 3rem 5%;
             text-align: center;
-            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-content {
@@ -99,14 +134,16 @@
         }
 
         .footer a {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
             margin: 0 1rem;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            opacity: 0.8;
         }
 
         .footer a:hover {
-            opacity: 0.8;
+            color: var(--accent-color);
+            opacity: 1;
         }
 
         .copyright {
@@ -114,12 +151,34 @@
             opacity: 0.8;
             font-size: 0.9rem;
         }
+
+        .company-info {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 2.5rem;
+            }
+
+            .content h2 {
+                font-size: 1.5rem;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+        }
     </style>
 </head>
 <body>
     <nav class="nav">
         <div class="nav-content">
-            <a href="index.html" class="logo">Product Illustrator</a>
+            <a href="index.html" class="logo">
+                <img src="assets/Product_Illustrator.png" alt="Product Illustrator Logo">
+            </a>
             <div class="nav-links">
                 <a href="privacy.html">Privacy</a>
                 <a href="terms.html">Terms</a>

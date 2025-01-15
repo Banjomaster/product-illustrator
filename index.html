@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <style>
         :root {
-            --primary-color: #2D3748;
-            --accent-color: #4A90E2;
-            --text-color: #2D3748;
-            --light-bg: #F7FAFC;
+            --primary-color: #1a1a1a;
+            --accent-color: #D4AF37;
+            --text-color: #E0E0E0;
+            --dark-bg: #121212;
+            --card-bg: #1E1E1E;
+            --hover-bg: #2A2A2A;
+            --gold-gradient: linear-gradient(45deg, #D4AF37, #FFD700);
         }
         
         * {
@@ -23,17 +26,18 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: white;
+            background-color: var(--dark-bg);
         }
 
         .nav {
-            padding: 1.5rem 5%;
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem 5%;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-content {
@@ -47,8 +51,21 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--text-color);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
         }
 
         .nav-links a {
@@ -57,56 +74,121 @@
             margin-left: 2rem;
             font-weight: 500;
             transition: color 0.3s ease;
+            opacity: 0.8;
         }
 
         .nav-links a:hover {
             color: var(--accent-color);
+            opacity: 1;
         }
 
         .hero {
-            padding: 8rem 5% 5rem;
-            background: var(--light-bg);
-            min-height: 80vh;
+            padding: 12rem 5% 8rem;
+            background: var(--dark-bg);
+            min-height: 100vh;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, rgba(18, 18, 18, 0) 70%);
+            pointer-events: none;
         }
 
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-logo {
+            width: 300px;
+            height: auto;
+            margin-bottom: 3rem;
+            animation: logoFloat 6s ease-in-out infinite, logoScale 12s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        @keyframes logoScale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        .hero-logo {
+            animation: combinedAnimation 8s ease-in-out infinite;
+        }
+
+        @keyframes combinedAnimation {
+            0% { transform: translateY(0) scale(1); }
+            25% { transform: translateY(-10px) scale(1.05); }
+            50% { transform: translateY(-20px) scale(1.08); }
+            75% { transform: translateY(-10px) scale(1.05); }
+            100% { transform: translateY(0) scale(1); }
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             line-height: 1.2;
-            color: var(--primary-color);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: #4A5568;
-            max-width: 600px;
+            font-size: 1.4rem;
+            color: rgba(224, 224, 224, 0.9);
+            max-width: 700px;
             margin: 0 auto 2rem;
         }
 
         .features {
             padding: 5rem 5%;
-            background: white;
+            background: var(--dark-bg);
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--dark-bg));
         }
 
         .features-content {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
 
         .features h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--primary-color);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .features-grid {
@@ -117,27 +199,36 @@
         }
 
         .feature-card {
-            padding: 2rem;
-            background: var(--light-bg);
-            border-radius: 8px;
-            transition: transform 0.3s ease;
+            padding: 2.5rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
+            background: var(--hover-bg);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: var(--primary-color);
+            color: var(--accent-color);
+        }
+
+        .feature-card p {
+            color: rgba(224, 224, 224, 0.8);
         }
 
         .footer {
             background: var(--primary-color);
-            color: white;
+            color: var(--text-color);
             padding: 3rem 5%;
             text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-content {
@@ -146,14 +237,16 @@
         }
 
         .footer a {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
             margin: 0 1rem;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            opacity: 0.8;
         }
 
         .footer a:hover {
-            opacity: 0.8;
+            color: var(--accent-color);
+            opacity: 1;
         }
 
         .copyright {
@@ -165,30 +258,39 @@
         .company-info {
             margin-top: 0.5rem;
             font-size: 0.85rem;
+            opacity: 0.6;
         }
 
         .content a {
             color: var(--accent-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .content a:hover {
-            color: var(--primary-color);
+            color: var(--text-color);
             text-decoration: underline;
         }
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             .features h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .hero-logo {
+                width: 220px;
+            }
+
+            .logo img {
+                height: 40px;
             }
         }
     </style>
@@ -196,7 +298,9 @@
 <body>
     <nav class="nav">
         <div class="nav-content">
-            <a href="index.html" class="logo">Product Illustrator</a>
+            <a href="index.html" class="logo">
+                <img src="assets/Product_Illustrator.png" alt="Product Illustrator Logo">
+            </a>
             <div class="nav-links">
                 <a href="privacy.html">Privacy</a>
                 <a href="terms.html">Terms</a>
@@ -206,6 +310,7 @@
 
     <section class="hero">
         <div class="hero-content">
+            <img src="assets/Product_Illustrator.png" alt="Product Illustrator Logo" class="hero-logo">
             <h1>Transform Your Product Stories</h1>
             <p>Create exclusive and compelling narratives for interior designs, real estate, and luxury products that captivate your audience.</p>
         </div>
