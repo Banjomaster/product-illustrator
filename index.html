@@ -4,50 +4,245 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Illustrator - Create Exclusive Product Stories</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <style>
+        :root {
+            --primary-color: #2D3748;
+            --accent-color: #4A90E2;
+            --text-color: #2D3748;
+            --light-bg: #F7FAFC;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: white;
+        }
+
+        .nav {
+            padding: 1.5rem 5%;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
-            color: #2C2C2C;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .header {
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            padding: 8rem 5% 5rem;
+            background: var(--light-bg);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #4A5568;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .features {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .features-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
             text-align: center;
             margin-bottom: 3rem;
+            color: var(--primary-color);
         }
-        .footer {
-            text-align: center;
-            margin-top: 3rem;
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .feature-card {
             padding: 2rem;
-            border-top: 1px solid #eee;
+            background: var(--light-bg);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
         }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .footer a {
-            color: #666;
+            color: white;
             text-decoration: none;
             margin: 0 1rem;
+            transition: opacity 0.3s ease;
         }
+
         .footer a:hover {
+            opacity: 0.8;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .company-info {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .content a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .content a:hover {
+            color: var(--primary-color);
             text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Product Illustrator</h1>
-        <p>Create exclusive stories for interior designs, real-estate and luxury products</p>
-    </div>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="logo">Product Illustrator</a>
+            <div class="nav-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </nav>
 
-    <div class="content">
-        <h2>Transform Your Product Stories</h2>
-        <p>Product Illustrator helps professionals create compelling narratives for luxury products, real estate, and interior design projects.</p>
-    </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Product Stories</h1>
+            <p>Create exclusive and compelling narratives for interior designs, real estate, and luxury products that captivate your audience.</p>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-content">
+            <h2>Why Choose Product Illustrator</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Interior Design</h3>
+                    <p>Craft engaging narratives that showcase the unique aspects of your interior design projects.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Real Estate</h3>
+                    <p>Tell compelling stories about properties that connect with potential buyers on an emotional level.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Luxury Products</h3>
+                    <p>Create premium product descriptions that highlight the exclusivity and value of your offerings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms of Service</a>
-        <p>&copy; 2024 Product Illustrator. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="mailto:support@digitaldreamscapes.app">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Digital Dreamscapes, LLC. All rights reserved.</p>
+                <p class="company-info">Product Illustrator is a product of Digital Dreamscapes, LLC</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

@@ -4,43 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Product Illustrator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <style>
-        /* Same styles as index.html */
+        :root {
+            --primary-color: #2D3748;
+            --accent-color: #4A90E2;
+            --text-color: #2D3748;
+            --light-bg: #F7FAFC;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: white;
+        }
+
+        .nav {
+            padding: 1.5rem 5%;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .content {
+            padding: 8rem 5% 5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary-color);
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
-    <div class="header">
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="logo">Product Illustrator</a>
+            <div class="nav-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content">
         <h1>Privacy Policy</h1>
-    </div>
-
-    <div class="content">
-        <h2>Introduction</h2>
-        <p>Last updated: [Current Date]</p>
-        <p>Product Illustrator ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our application.</p>
-
+        
         <h2>Information We Collect</h2>
-        <p>We collect information that you provide directly to us, including:</p>
-        <ul>
-            <li>Account information (name, email, profile details)</li>
-            <li>Content you create using our application</li>
-            <li>Usage data and analytics</li>
-        </ul>
+        <p>We collect information that you provide directly to us when using our services. This may include your name, email address, and any other information you choose to provide.</p>
 
         <h2>How We Use Your Information</h2>
-        <p>We use the collected information to:</p>
-        <ul>
-            <li>Provide and maintain our services</li>
-            <li>Improve user experience</li>
-            <li>Send important updates and communications</li>
-        </ul>
+        <p>We use the information we collect to provide, maintain, and improve our services, communicate with you, and protect our services and users.</p>
 
-        <!-- Add more sections as needed -->
-    </div>
+        <h2>Information Sharing</h2>
+        <p>We do not share your personal information with third parties except as described in this privacy policy or with your consent.</p>
+
+        <h2>Data Security</h2>
+        <p>We take reasonable measures to help protect your personal information from loss, theft, misuse, unauthorized access, disclosure, alteration, and destruction.</p>
+
+        <h2>Changes to This Policy</h2>
+        <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions about this privacy policy, please contact us at <a href="mailto:support@digitaldreamscapes.app">support@digitaldreamscapes.app</a>.</p>
+    </main>
 
     <footer class="footer">
-        <a href="/">Home</a>
-        <a href="/terms">Terms of Service</a>
-        <p>&copy; 2024 Product Illustrator. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="mailto:support@digitaldreamscapes.app">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Digital Dreamscapes, LLC. All rights reserved.</p>
+                <p class="company-info">Product Illustrator is a product of Digital Dreamscapes, LLC</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
